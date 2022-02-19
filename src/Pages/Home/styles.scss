@@ -1,0 +1,119 @@
+.home_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0rem 2rem;
+
+    h1 {
+        margin: 0 0 1rem;
+        font-weight: 600;
+        font-size: 4.5rem;
+        line-height: 80px;
+        text-align: center;
+        letter-spacing: -3px;
+        color: #18214D;
+    }
+    
+    p {
+        margin: 0 0 4rem;
+        color: #3e4462;
+        font-size: 1.25rem;
+        max-width: 27.813rem;
+        text-align: center;
+    }
+
+
+    form {
+        display: flex;
+
+        .form_input {
+            position: relative;
+            margin-right: .5rem;
+            
+            input {
+                font-size: 20px;
+                width: calc(100vh - 4rem);
+                height: 3.625rem;
+                font-size: 1.25rem;
+                padding-left: 2.8rem;
+                background-color: #DFE4EA;
+                border-radius: 8px;
+                border: 0;
+                outline: none;
+            }
+
+            .icon {
+                position: absolute;
+                left: .8rem;
+                top: 1.2rem;
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: #18214D;
+            }
+        }
+        button {
+            padding: 0.8rem 1.7rem;
+            color: #FFFFFF;
+            background-color: #F3663F;
+            border-radius: 8px;
+            outline: none;
+            font-weight: 600;
+            border: 0;
+            font-size: 1.25rem;
+            height: 3.625rem;
+        }
+    }
+
+    .suggestion {
+        margin-top: 1.5rem;
+        color: #3E4462;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .repository {
+        margin: 2rem 0 4rem;
+        display: flex;
+
+        button {
+            margin-right: .7rem;
+            padding: .1rem 1rem;
+
+            color: #FFFFFF;
+            background-color: #29335C;
+            border-radius: 8px;
+            outline: none;
+            font-weight: 600;
+            border: 0;
+            font-size: 1.25rem;
+            height: 3.625rem;
+        }
+    }
+
+
+}
+
+
+$breakpoint-tablet: 950px;
+@media (max-width: $breakpoint-tablet) {
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 0.85rem;
+    }
+
+    input {
+        max-width: 100%;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    .repository {
+        display: grid;
+    }
+}
