@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = ({ type, className, label }) => {
+const Button = ({ type, className, label, disabled }) => {
     return (
         <div>
-            <button type={type} className={className}>
+            <button disabled={disabled} type={type} className={className}>
                 {label}
             </button>
         </div>

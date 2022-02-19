@@ -5,6 +5,7 @@ import {FaSearch} from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
+import Loading from "../LoadingState";
 
 const URL = "https://api.github.com"
 
@@ -19,7 +20,7 @@ const Home = () => {
 
         try {
             const response = await axios.get(`${URL}/orgs/${org}/repos`);
-            setResult(response);
+            setResult(response.data);
             setLoading(false);
             console.log(response)
         } catch (error) {
@@ -30,23 +31,24 @@ const Home = () => {
 
     if (loading) {
         return (
+            <Loading
+                org={org}
+                loading={loading}
+                handleSubmit={handleSubmit}
+                onChange={e => setOrg(e.target.value)}
+            />
+        )
+    }
+
+    if (result.length > 0) {
+        return (
             <>
                 <div className="result">
-                    loading is here
+                    result is here
                 </div>
             </>
         )
     }
-
-    // if (result) {
-    //     return (
-    //         <>
-    //             <div className="result">
-    //                 result is here
-    //             </div>
-    //         </>
-    //     )
-    // }
 
     return (
         <>
@@ -71,6 +73,7 @@ const Home = () => {
                         type="text" 
                         placeholder="Eg. facebook/react"
                         onChange={e => setOrg(e.target.value)}
+                        disabled={loading}
                     />
                     <FaSearch className="icon"/>
                 </div>
@@ -79,6 +82,7 @@ const Home = () => {
                     label="See commit"
                     type="submit"
                     className="submit_btn"
+                    disabled={loading}
                 />
             </form>
 
