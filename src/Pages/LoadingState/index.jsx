@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.scss"
 import {FaSearch} from 'react-icons/fa';
-import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import TextInput from "../../components/TextInput";
 

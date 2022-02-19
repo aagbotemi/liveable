@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.scss"
 import {FaSearch} from 'react-icons/fa';
-import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import TextInput from "../../components/TextInput";
 import moment from "moment";
@@ -36,7 +35,6 @@ const Result = ({onChange, handleSubmit, loading, org, result}) => {
             <h1>{org}</h1>
             <ul>
                 {result.slice(0, 5).map(res => {
-                    console.log(res)
                     return (
                         <li key={res.id}>
                             <div className="avatar">

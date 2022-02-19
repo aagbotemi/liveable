@@ -23,12 +23,53 @@ const Home = () => {
             const response = await axios.get(`${URL}/orgs/${org}/repos`);
             setResult(response.data);
             setLoading(false);
-            console.log(response)
         } catch (error) {
             alert(error.message);
             setLoading(false);
         }
     }
+    const handleDjango = async(e) => {
+        e.preventDefault();
+        setLoading(true);
+        
+        try {
+            const response = await axios.get(`${URL}/orgs/django/repos`);
+            setResult(response.data);
+            setLoading(false);
+        } catch (error) {
+            alert(error.message);
+            setLoading(false);
+        }
+    }
+    
+    const handleDogehouse = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        
+        try {
+            const response = await axios.get(`${URL}/orgs/dogehouse/repos`);
+            setResult(response.data);
+            setLoading(false);
+        } catch (error) {
+            alert(error.message);
+            setLoading(false);
+        }
+    }
+    const handleMicrosoft = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        
+        try {
+            const response = await axios.get(`${URL}/orgs/microsoft/repos`);
+            setResult(response.data);
+            setLoading(false);
+        } catch (error) {
+            alert(error.message);
+            setLoading(false);
+        }
+    }
+
+    
 
     if (loading) {
         return (
@@ -92,10 +133,11 @@ const Home = () => {
             <span className="suggestion">Or pick one of these suggested repos</span>
         
             <div className="repository">
-                <button>django/django</button>
-                <button>microsoft/vscode</button>
+                <button
+                    type="submit" onClick={handleDjango}>django/django</button>
+                <button type="submit" onClick={handleMicrosoft}>microsoft/vscode</button>
                 <button>jezen/is-thirteen</button>
-                <button>benawad/dogehouse</button>
+                <button type="submit" onClick={handleDogehouse}>benawad/dogehouse</button>
             </div>
         
         </div>
