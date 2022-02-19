@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import "./styles.scss"
 import {FaSearch} from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import TextInput from "../../components/TextInput";
+import Button from "../../components/Button";
 
 const URL = "https://api.github.com"
 
 const Home = () => {
     const [org, setOrg] = useState("");
+    const [result, setResult] = useState([])
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async(e) => {
@@ -16,7 +19,7 @@ const Home = () => {
 
         try {
             const response = await axios.get(`${URL}/orgs/${org}/repos`);
-            setOrg(response);
+            setResult(response);
             setLoading(false);
             console.log(response)
         } catch (error) {
@@ -35,20 +38,20 @@ const Home = () => {
         )
     }
 
-    if (org) {
-        return (
-            <>
-                <div className="result">
-                    org is here
-                </div>
-            </>
-        )
-    }
+    // if (result) {
+    //     return (
+    //         <>
+    //             <div className="result">
+    //                 result is here
+    //             </div>
+    //         </>
+    //     )
+    // }
 
     return (
         <>
             <div className="header_container">
-            <h1>Commit Viewer</h1>
+            <h1>CommitViewer</h1>
             <ul>
                 <li>
                     <Link to="/">About</Link>
@@ -63,7 +66,8 @@ const Home = () => {
         
             <form onSubmit={handleSubmit}>
                 <div className="form_input">
-                    <input 
+                    <TextInput
+                        className="search_input" 
                         type="text" 
                         placeholder="Eg. facebook/react"
                         onChange={e => setOrg(e.target.value)}
@@ -71,7 +75,11 @@ const Home = () => {
                     <FaSearch className="icon"/>
                 </div>
 
-                <button type="submit" className="submit_btn">See commits</button>
+                <Button
+                    label="See commit"
+                    type="submit"
+                    className="submit_btn"
+                />
             </form>
 
             <span className="suggestion">Or pick one of these suggested repos</span>
