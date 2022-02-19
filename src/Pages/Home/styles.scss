@@ -149,17 +149,20 @@ $breakpoint-tablet: 768px;
 
     form {
         flex-direction: column;
+
+        .form_input {
+            .search_input {
+                width: calc(100vw - 4rem) !important;
+            }
+
+        }
+
     }
 
     .submit_btn {
         margin-top: 0.85rem;
         width: calc(100vw - 4rem);
     }
-    
-    input {
-        max-width: 100%;
-    }
-    
     
     .repository {
         flex-direction: column;

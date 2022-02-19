@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
 import Loading from "../LoadingState";
+import Result from "../Result";
 
 const URL = "https://api.github.com"
 
@@ -17,14 +18,14 @@ const Home = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         setLoading(true);
-
+        
         try {
             const response = await axios.get(`${URL}/orgs/${org}/repos`);
             setResult(response.data);
             setLoading(false);
             console.log(response)
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
             setLoading(false);
         }
     }
@@ -39,14 +40,16 @@ const Home = () => {
             />
         )
     }
-
+    
     if (result.length > 0) {
         return (
-            <>
-                <div className="result">
-                    result is here
-                </div>
-            </>
+            <Result 
+                result={result}
+                org={org}
+                loading={loading}
+                handleSubmit={handleSubmit}
+                onChange={e => setOrg(e.target.value)}
+            />
         )
     }
 
