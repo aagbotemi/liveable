@@ -35,6 +35,16 @@ const Home = () => {
         )
     }
 
+    if (org) {
+        return (
+            <>
+                <div className="result">
+                    org is here
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <div className="header_container">

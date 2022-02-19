@@ -1,3 +1,47 @@
+.header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 2500px;
+    padding: 3rem 9.0625rem 4rem;
+    // flex-direction: column;
+    
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #18214D;
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        li {
+            
+            &:first-child {
+                margin-right: 4rem;
+            }
+            
+            
+            a {
+                color: #18214D;
+                font-size: 1.25rem;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+    .header_container {
+        flex-direction: column;
+    }
+}
+
+
 .home_container {
     display: flex;
     justify-content: center;
