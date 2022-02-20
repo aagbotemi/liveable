@@ -37,15 +37,30 @@ const Result = ({onChange, handleSubmit, loading, org, result}) => {
                 {result.slice(0, 5).map(res => {
                     return (
                         <li key={res.id}>
-                            <div className="avatar">
-                                <img width={"40px"} src={res.owner.avatar_url} alt="avatar" />
-                                <div>{res.name}</div>
+                            <div className="mobile">
+                                <div className="description">
+                                    <span>{res.description}</span>
+                                    <span>(#{res.open_issues})</span>
+                                </div>
+                                <div className="mobile_bottom">
+                                    <div className="avatar">
+                                        <img width={"40px"} src={res.owner.avatar_url} alt="avatar" />
+                                        <div>{res.name}</div>
+                                    </div>
+                                    <div>{moment(res.created_at).format("HH:mm L")}</div>
+                                </div>
                             </div>
-                            <div className="description">
-                                <div>{res.description}</div>
-                                <div>(#{res.open_issues})</div>
+                            <div className="desktop">
+                                <div className="avatar">
+                                    <img width={"40px"} src={res.owner.avatar_url} alt="avatar" />
+                                    <div>{res.name}</div>
+                                </div>
+                                <div className="description">
+                                    <span>{res.description}</span>
+                                    <span>(#{res.open_issues})</span>
+                                </div>
+                                <div>{moment(res.created_at).format("HH:mm L")}</div>
                             </div>
-                            <div>{moment(res.created_at).format("HH:mm L")}</div>
                         
                         </li>
                     )
